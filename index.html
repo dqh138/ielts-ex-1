@@ -452,7 +452,7 @@
     <div class="container">
         <header>
             <h1>🎯 Vocabulary Quiz</h1>
-            <p>Ôn tập và kiểm tra từ vựng tiếng Anh</p>
+            <p>Ôn tập và kiểm tra từ vựng (Mrs. Chip's Edition)</p>
         </header>
         
         <div class="nav-tabs">
@@ -522,7 +522,7 @@
             },
             {
                 word: "stay in someone's good books",
-                example: "John always volunteers for extra projects to _____ with his manager."
+                example: "John always volunteers for extra projects to _____ his manager _____."
             },
             {
                 word: "be made redundant",
@@ -530,7 +530,7 @@
             },
             {
                 word: "carve a niche for myself",
-                example: "Through years of dedication, Maria managed to _____ as an expert in sustainable architecture."
+                example: "Through years of dedication, Maria managed to _____ _____ as an expert in sustainable architecture."
             },
             {
                 word: "move up the career ladder",
@@ -925,16 +925,11 @@
             let className = '';
             
             if (percentage == 100) {
-                message = '🎉 Xuất sắc! Bạn đã trả lời đúng tất cả!';
+                message = '🎉 Xờii! Quá đẳng cấp, chúc mừng bạn hoàn thành!';
                 className = 'success';
-            } else if (percentage >= 70) {
-                message = '👏 Tốt lắm! Bạn đang tiến bộ!';
-                className = 'success';
-            } else if (percentage >= 50) {
-                message = '💪 Cố gắng lên! Bạn đã làm được một nửa!';
-                className = 'partial';
             } else {
-                message = '📚 Hãy ôn lại và thử lại nhé!';
+                const wrong = total - correct;
+                message = `😅 Ra dại!! Mời làm lại!<br><small style="font-size: 0.85em; margin-top: 8px; display: block;">Đúng: ${correct} câu | Sai: ${wrong} câu</small>`;
                 className = 'partial';
             }
             
