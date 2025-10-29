@@ -13,64 +13,78 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
             overflow: hidden;
         }
         
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
         }
         
         header h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         
         header p {
-            opacity: 0.9;
-            font-size: 1.1em;
+            opacity: 0.95;
+            font-size: 1.15em;
+            font-weight: 300;
         }
         
         .nav-tabs {
             display: flex;
-            background: #f8f9fa;
-            border-bottom: 3px solid #667eea;
+            background: #f8f9fc;
+            border-bottom: 2px solid #e3e8ef;
+            padding: 0 20px;
         }
         
         .nav-tab {
             flex: 1;
-            padding: 20px;
+            padding: 18px 25px;
             text-align: center;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             border: none;
             background: transparent;
             font-size: 1em;
+            color: #6c757d;
+            position: relative;
         }
         
         .nav-tab:hover {
-            background: #e9ecef;
+            background: #fff;
+            color: #667eea;
         }
         
         .nav-tab.active {
             background: white;
             color: #667eea;
-            border-bottom: 3px solid #667eea;
-            margin-bottom: -3px;
+        }
+        
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
         
         .game-content {
@@ -89,171 +103,264 @@
         }
         
         .word-bank {
-            background: #e7eeff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 5px solid #667eea;
+            background: linear-gradient(135deg, #f5f7ff 0%, #fff5f8 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            border: 2px solid #e8eaf6;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.08);
         }
         
         .word-bank h3 {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-align: center;
         }
         
         .word-bank-list {
-            color: #333;
-            line-height: 2;
-            font-size: 1.05em;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        
+        .word-bank-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.95em;
+            color: #495057;
+            font-weight: 500;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        
+        .word-bank-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
         }
         
         .question-card {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
             border-radius: 15px;
             padding: 25px;
-            margin-bottom: 25px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border: 2px solid #e8eaf6;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
         .question-card:hover {
-            transform: translateX(5px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.12);
+            border-color: #667eea;
         }
         
         .question-number {
             display: inline-block;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 5px 15px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 15px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
         
         .question-text {
-            font-size: 1.1em;
+            font-size: 1.08em;
             margin: 15px 0;
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.7;
+            color: #2c3e50;
+            font-weight: 400;
         }
         
         .blank {
             display: inline-block;
-            border-bottom: 2px dashed #667eea;
-            min-width: 200px;
-            padding: 0 10px;
-            font-weight: bold;
+            border-bottom: 2px solid #667eea;
+            min-width: 140px;
+            padding: 0 8px;
+            font-weight: 600;
             color: #667eea;
+            background: linear-gradient(to bottom, transparent 50%, rgba(102, 126, 234, 0.05) 50%);
         }
         
         .answer-input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
+            padding: 14px 18px;
+            border: 2px solid #e3e8ef;
+            border-radius: 12px;
             font-size: 1em;
-            margin-top: 10px;
-            transition: border-color 0.3s;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: inherit;
         }
         
         .answer-input:focus {
             outline: none;
             border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: #fafbff;
         }
         
         .answer-input.correct {
             border-color: #28a745;
-            background: #d4edda;
+            background: #f0f9f4;
         }
         
         .answer-input.wrong {
             border-color: #dc3545;
-            background: #f8d7da;
+            background: #fef5f6;
         }
         
         .correct-answer {
             color: #28a745;
-            font-weight: bold;
-            margin-top: 8px;
+            font-weight: 600;
+            margin-top: 10px;
             display: none;
+            padding: 10px;
+            background: #f0f9f4;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
         }
         
         .correct-answer.show {
             display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .synonym-group {
-            background: white;
-            padding: 15px;
+            background: linear-gradient(135deg, #fff 0%, #f5f7ff 100%);
+            padding: 16px 20px;
             border: 2px solid #667eea;
-            border-radius: 10px;
-            color: #0000FF;
-            font-weight: 500;
-            margin: 10px 0;
+            border-radius: 12px;
+            color: #4c5fd5;
+            font-weight: 600;
+            margin: 12px 0;
+            font-size: 1em;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
         }
         
         .match-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 25px;
+            margin-top: 25px;
         }
         
         .match-item {
-            padding: 15px;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
+            padding: 18px 20px;
+            border: 2px solid #e3e8ef;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
         .match-item:hover {
             border-color: #667eea;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
         }
         
         .match-item.selected {
             border-color: #667eea;
-            background: #e7eeff;
+            background: linear-gradient(135deg, #f5f7ff 0%, #fff5f8 100%);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
         
         .match-item.matched {
-            border-color: #28a745;
-            background: #d4edda;
             cursor: default;
         }
         
+        .match-item.matched-0 {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #e7eeff 0%, #d4e4ff 100%);
+        }
+        
+        .match-item.matched-1 {
+            border-color: #f093fb;
+            background: linear-gradient(135deg, #fde8ff 0%, #fdd4ff 100%);
+        }
+        
+        .match-item.matched-2 {
+            border-color: #4facfe;
+            background: linear-gradient(135deg, #e0f4ff 0%, #c8edff 100%);
+        }
+        
+        .match-item.matched-3 {
+            border-color: #43e97b;
+            background: linear-gradient(135deg, #e1fde9 0%, #c8fcd5 100%);
+        }
+        
+        .match-item.matched-4 {
+            border-color: #fa709a;
+            background: linear-gradient(135deg, #ffe4ed 0%, #ffd4e3 100%);
+        }
+        
+        .match-item.matched-5 {
+            border-color: #feca57;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffefcc 100%);
+        }
+        
+        .match-item.matched-6 {
+            border-color: #ff6b6b;
+            background: linear-gradient(135deg, #ffe5e5 0%, #ffd4d4 100%);
+        }
+        
+        .match-item.matched-7 {
+            border-color: #a29bfe;
+            background: linear-gradient(135deg, #f0effe 0%, #e3dffe 100%);
+        }
+        
         .word-label {
-            font-weight: bold;
+            font-weight: 700;
             color: #667eea;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
         
         .definition-text {
-            color: #555;
-            line-height: 1.5;
+            color: #495057;
+            line-height: 1.6;
+            font-weight: 400;
         }
         
         .controls {
             display: flex;
             gap: 15px;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 35px;
             flex-wrap: wrap;
         }
         
         .btn {
-            padding: 12px 30px;
+            padding: 14px 35px;
             border: none;
-            border-radius: 25px;
-            font-size: 1em;
+            border-radius: 30px;
+            font-size: 1.05em;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .btn-primary {
@@ -262,47 +369,57 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.35);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
         
         .btn-secondary {
-            background: #6c757d;
+            background: linear-gradient(135deg, #868e96 0%, #6c757d 100%);
             color: white;
         }
         
         .btn-secondary:hover {
-            background: #5a6268;
+            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 117, 125, 0.3);
         }
         
         .score {
             text-align: center;
-            font-size: 1.5em;
-            padding: 20px;
+            font-size: 1.6em;
+            padding: 25px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 15px;
-            margin-top: 20px;
-            font-weight: bold;
+            margin-top: 25px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
         
         .result-message {
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            font-size: 1.2em;
+            margin-top: 15px;
+            border-radius: 12px;
+            font-size: 1.25em;
             font-weight: 600;
+            animation: fadeIn 0.5s ease;
         }
         
         .result-message.success {
-            background: #d4edda;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             color: #155724;
+            border: 2px solid #b1dfbb;
         }
         
         .result-message.partial {
-            background: #fff3cd;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
             color: #856404;
+            border: 2px solid #ffd93d;
         }
         
         @media (max-width: 768px) {
@@ -313,6 +430,20 @@
             .nav-tab {
                 padding: 15px 10px;
                 font-size: 0.9em;
+            }
+            
+            .word-bank-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .word-bank-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -346,6 +477,12 @@
         
         <!-- Game 2: Match Definitions -->
         <div id="game2" class="game-content">
+            <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff5f0 100%); padding: 15px 20px; border-radius: 10px; margin-bottom: 25px; border-left: 4px solid #feca57;">
+                <p style="margin: 0; color: #856404; font-weight: 500;">
+                    💡 <strong>Hướng dẫn:</strong> Chọn 1 từ ở cột trái, sau đó chọn định nghĩa phù hợp ở cột phải. Mỗi cặp sẽ có màu riêng. 
+                    <span style="color: #dc3545;">Click vào cặp đã ghép để hủy và ghép lại.</span>
+                </p>
+            </div>
             <div class="match-container">
                 <div id="game2-words"></div>
                 <div id="game2-definitions"></div>
@@ -486,7 +623,9 @@
         let game1Answers = [];
         let game3Answers = [];
         let game2Matches = {};
+        let game2MatchColors = {};
         let selectedWord = null;
+        let matchColorIndex = 0;
 
         function showGame(gameNum) {
             document.querySelectorAll('.game-content').forEach(el => el.classList.remove('active'));
@@ -516,7 +655,14 @@
             game1Answers = [];
             
             const wordList = game1Data.map(item => item.word);
-            wordbankDiv.innerHTML = wordList.join(' • ');
+            wordbankDiv.innerHTML = '';
+            
+            wordList.forEach(word => {
+                const wordItem = document.createElement('div');
+                wordItem.className = 'word-bank-item';
+                wordItem.textContent = word;
+                wordbankDiv.appendChild(wordItem);
+            });
             
             game1Data.forEach((item, qIndex) => {
                 const card = document.createElement('div');
@@ -544,27 +690,91 @@
             wordsContainer.innerHTML = '';
             defsContainer.innerHTML = '';
             game2Matches = {};
+            game2MatchColors = {};
+            matchColorIndex = 0;
             
             const shuffledDefs = shuffleArray([...game2Data]);
             
             game2Data.forEach((item, i) => {
                 const wordDiv = document.createElement('div');
                 wordDiv.className = 'match-item';
+                wordDiv.setAttribute('data-word-index', i);
                 wordDiv.innerHTML = `<div class="word-label">${i + 1}. ${item.word}</div>`;
-                wordDiv.onclick = () => selectWord(i);
+                wordDiv.onclick = () => handleWordClick(i);
                 wordsContainer.appendChild(wordDiv);
             });
             
             shuffledDefs.forEach((item, i) => {
                 const defDiv = document.createElement('div');
                 defDiv.className = 'match-item';
+                defDiv.setAttribute('data-def-index', i);
+                defDiv.setAttribute('data-word', item.word);
                 defDiv.innerHTML = `
                     <div class="word-label">${String.fromCharCode(65 + i)}.</div>
                     <div class="definition-text">${item.definition}</div>
                 `;
-                defDiv.onclick = () => selectDefinition(i, item);
+                defDiv.onclick = () => handleDefClick(i, item);
                 defsContainer.appendChild(defDiv);
             });
+        }
+        
+        function handleWordClick(index) {
+            const words = document.querySelectorAll('#game2-words .match-item');
+            
+            // If already matched, unmatch it
+            if (words[index].classList.contains('matched')) {
+                unmatchPair(index);
+                return;
+            }
+            
+            // Otherwise, select it
+            words.forEach(w => w.classList.remove('selected'));
+            words[index].classList.add('selected');
+            selectedWord = index;
+        }
+        
+        function handleDefClick(defIndex, item) {
+            const defs = document.querySelectorAll('#game2-definitions .match-item');
+            
+            // If already matched, unmatch the pair
+            if (defs[defIndex].classList.contains('matched')) {
+                // Find which word it's matched with
+                const matchedWordIndex = Object.keys(game2Matches).find(key => {
+                    const matchedWord = game2Matches[key];
+                    return matchedWord === defs[defIndex].getAttribute('data-word');
+                });
+                if (matchedWordIndex !== undefined) {
+                    unmatchPair(parseInt(matchedWordIndex));
+                }
+                return;
+            }
+            
+            // Otherwise proceed with matching
+            selectDefinition(defIndex, item);
+        }
+        
+        function unmatchPair(wordIndex) {
+            if (!game2Matches[wordIndex]) return;
+            
+            const words = document.querySelectorAll('#game2-words .match-item');
+            const defs = document.querySelectorAll('#game2-definitions .match-item');
+            const colorClass = `matched-${game2MatchColors[wordIndex]}`;
+            
+            // Remove matched styling from word
+            words[wordIndex].classList.remove('matched');
+            words[wordIndex].classList.remove(colorClass);
+            
+            // Find and remove matched styling from definition
+            defs.forEach(def => {
+                if (def.classList.contains(colorClass)) {
+                    def.classList.remove('matched');
+                    def.classList.remove(colorClass);
+                }
+            });
+            
+            // Remove from matches
+            delete game2Matches[wordIndex];
+            delete game2MatchColors[wordIndex];
         }
 
         function initGame3() {
@@ -574,7 +784,14 @@
             game3Answers = [];
             
             const wordList = game3Data.map(item => item.word);
-            wordbankDiv.innerHTML = wordList.join(' • ');
+            wordbankDiv.innerHTML = '';
+            
+            wordList.forEach(word => {
+                const wordItem = document.createElement('div');
+                wordItem.className = 'word-bank-item';
+                wordItem.textContent = word;
+                wordbankDiv.appendChild(wordItem);
+            });
             
             const shuffledQuestions = shuffleArray([...game3Data]);
             
@@ -644,27 +861,36 @@
             }
         }
 
-        function selectWord(index) {
-            const words = document.querySelectorAll('#game2-words .match-item');
-            words.forEach(w => w.classList.remove('selected'));
-            words[index].classList.add('selected');
-            selectedWord = index;
-        }
-
         function selectDefinition(defIndex, item) {
             if (selectedWord === null) {
                 alert('Vui lòng chọn một từ ở cột bên trái trước!');
                 return;
             }
             
-            game2Matches[selectedWord] = item.word;
-            
-            const words = document.querySelectorAll('#game2-words .match-item');
             const defs = document.querySelectorAll('#game2-definitions .match-item');
             
+            // Check if definition already matched
+            if (defs[defIndex].classList.contains('matched')) {
+                alert('Định nghĩa này đã được ghép rồi!');
+                return;
+            }
+            
+            // Store the match
+            game2Matches[selectedWord] = item.word;
+            game2MatchColors[selectedWord] = matchColorIndex;
+            
+            const words = document.querySelectorAll('#game2-words .match-item');
+            
+            // Apply matching color to both word and definition
             words[selectedWord].classList.remove('selected');
             words[selectedWord].classList.add('matched');
+            words[selectedWord].classList.add(`matched-${matchColorIndex}`);
+            
             defs[defIndex].classList.add('matched');
+            defs[defIndex].classList.add(`matched-${matchColorIndex}`);
+            
+            // Increment color index for next match
+            matchColorIndex = (matchColorIndex + 1) % 8;
             
             selectedWord = null;
         }
@@ -672,10 +898,16 @@
         function checkMatches() {
             let correct = 0;
             const total = game2Data.length;
+            const words = document.querySelectorAll('#game2-words .match-item');
             
+            // Check each match
             game2Data.forEach((item, index) => {
                 if (game2Matches[index] === item.word) {
                     correct++;
+                } else if (game2Matches[index]) {
+                    // Wrong match - add red border
+                    words[index].style.borderColor = '#dc3545';
+                    words[index].style.borderWidth = '3px';
                 }
             });
             
