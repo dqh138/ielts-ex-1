@@ -219,33 +219,6 @@
             background: #fef5f6;
         }
         
-        .correct-answer {
-            color: #28a745;
-            font-weight: 600;
-            margin-top: 10px;
-            display: none;
-            padding: 10px;
-            background: #f0f9f4;
-            border-radius: 8px;
-            border-left: 3px solid #28a745;
-        }
-        
-        .correct-answer.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         .synonym-group {
             background: linear-gradient(135deg, #fff 0%, #f5f7ff 100%);
             padding: 16px 20px;
@@ -451,8 +424,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>📖 Vocabulary Quiz</h1>
-            <p>Ôn tập và kiểm tra từ vựng - Ms. Chip's Edition</p>
+            <h1>🎯 Vocabulary Quiz</h1>
+            <p>Ôn tập và kiểm tra từ vựng tiếng Anh</p>
         </header>
         
         <div class="nav-tabs">
@@ -479,7 +452,8 @@
         <div id="game2" class="game-content">
             <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff5f0 100%); padding: 15px 20px; border-radius: 10px; margin-bottom: 25px; border-left: 4px solid #feca57;">
                 <p style="margin: 0; color: #856404; font-weight: 500;">
-                    💡 <strong>Hướng dẫn:</strong> Chọn 1 từ ở cột trái, sau đó chọn định nghĩa phù hợp ở cột phải.
+                    💡 <strong>Hướng dẫn:</strong> Chọn 1 từ ở cột trái, sau đó chọn định nghĩa phù hợp ở cột phải. Mỗi cặp sẽ có màu riêng. 
+                    <span style="color: #dc3545;">Click vào cặp đã ghép để hủy và ghép lại.</span>
                 </p>
             </div>
             <div class="match-container">
@@ -674,9 +648,6 @@
                     <div class="question-text">${exampleText}</div>
                     <input type="text" class="answer-input" id="answer-${qIndex}" 
                            placeholder="Nhập đáp án của bạn...">
-                    <div class="correct-answer" id="correct-${qIndex}">
-                        ✓ Đáp án đúng: <strong>${item.word}</strong>
-                    </div>
                 `;
                 container.appendChild(card);
                 game1Answers.push({ input: null, correct: item.word });
@@ -804,9 +775,6 @@
                     <div class="synonym-group">${item.synonymGroup}</div>
                     <input type="text" class="answer-input" id="answer3-${qIndex}" 
                            placeholder="Nhập từ phù hợp từ danh sách trên...">
-                    <div class="correct-answer" id="correct3-${qIndex}">
-                        ✓ Đáp án đúng: <strong>${item.word}</strong>
-                    </div>
                 `;
                 container.appendChild(card);
                 game3Answers.push({ input: null, correct: item.word });
@@ -821,7 +789,6 @@
                 total = game1Answers.length;
                 game1Answers.forEach((answer, index) => {
                     const input = document.getElementById(`answer-${index}`);
-                    const correctDiv = document.getElementById(`correct-${index}`);
                     const userAnswer = normalizeText(input.value);
                     const correctAnswer = normalizeText(answer.correct);
                     
@@ -832,7 +799,6 @@
                         correct++;
                     } else {
                         input.classList.add('wrong');
-                        correctDiv.classList.add('show');
                     }
                 });
                 
@@ -841,7 +807,6 @@
                 total = game3Answers.length;
                 game3Answers.forEach((answer, index) => {
                     const input = document.getElementById(`answer3-${index}`);
-                    const correctDiv = document.getElementById(`correct3-${index}`);
                     const userAnswer = normalizeText(input.value);
                     const correctAnswer = normalizeText(answer.correct);
                     
@@ -852,7 +817,6 @@
                         correct++;
                     } else {
                         input.classList.add('wrong');
-                        correctDiv.classList.add('show');
                     }
                 });
                 
@@ -897,16 +861,11 @@
         function checkMatches() {
             let correct = 0;
             const total = game2Data.length;
-            const words = document.querySelectorAll('#game2-words .match-item');
             
             // Check each match
             game2Data.forEach((item, index) => {
                 if (game2Matches[index] === item.word) {
                     correct++;
-                } else if (game2Matches[index]) {
-                    // Wrong match - add red border
-                    words[index].style.borderColor = '#dc3545';
-                    words[index].style.borderWidth = '3px';
                 }
             });
             
@@ -924,11 +883,11 @@
             let className = '';
             
             if (percentage == 100) {
-                message = '🎉 Xờii! Quá đẳng cấp, chúc mừng bạn hoàn thành!';
+                message = '🎉 Xờii! Quá đẳng cấp, cám ơn bạn đã làm bài!';
                 className = 'success';
             } else {
                 const wrong = total - correct;
-                message = `😿 Ra dại!! Mời làm lại!<br><small style="font-size: 0.85em; margin-top: 8px; display: block;">Đúng: ${correct} câu | Sai: ${wrong} câu</small>`;
+                message = `😅 Ra dại!! Mời làm lại!<br><small style="font-size: 0.85em; margin-top: 8px; display: block;">Đúng: ${correct} câu | Sai: ${wrong} câu</small>`;
                 className = 'partial';
             }
             
